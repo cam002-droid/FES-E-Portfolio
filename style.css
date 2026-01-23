@@ -1,31 +1,86 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Rosarivo:ital@0;1&display=swap');
 
 /* DEFAULT STYLE */
 
 *{
-  color: red;
   font-family: "Lato", sans-serif;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
 
-h1, h2, h3, h4, h5, h6, span {
-  color: #242424;
+#about-me {     /** BACKGROUND GRADIENT **/
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(to right, #313b37, #534e4e);
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #ffff;
   text-align: center;
   line-height: 1.25;
+
+}
+
+h1 {
+  font-size: 36px;
+  
 }
 
 p {
   line-height: 1.5;
   font-size: 16px;
+  color: white;
+
+}
+
+span {
+  font-family: "Rosarivo", cursive;
+  font-weight: 400;
+  font-style: normal; 
+  color: rgb(255, 255, 255);
+  
 }
 
 li {
   list-style: none;
 }
 
+.flex {
+  display: flex;   /** child is also 100% height of the page **/
+}
+
+.flex-1 {
+  flex: 1; /** entire height of the page **/ 
+}
+
+.row {
+  width: 100%;
+  max-width: 800px; /** ensures info and image under the row div 
+  are not the entire width of the page **/
+  margin: 0 auto; /** automatically centers the text based on equal margin values **/
+}
+
+.text--teal {
+  color:#1abc9c
+}
+
 /* NAVIGATION BAR */
+
+.dashboard {   /** NAVIGATION DASHBOARD  **/
+  max-width: 1400px;
+  margin: 1rem ;
+  padding: 1rem;
+  background: #141419e6;
+  border-radius: 16px;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.6);
+  backdrop-filter: blur(60px);
+  transition: all 0.3s ease;
+}
 
 nav {
   height: 100px;
@@ -41,28 +96,109 @@ nav {
   display: flex;   /* puts the links side-by-side */
 }
 
+.link__hover-effect:hover {
+  color: #1abc9c;
+}
+
 .nav__link--anchor {
   margin: 0 12px; 
-  color: #242424;
+  color: #ffff;
   text-decoration: none;
   font-weight: 700;
-    /* puts the links side-by-side */
 }
 
 .nav__link--anchor-primary {
-  background-color: #6030b1;
   padding: 8px 20px;
   border-radius: 50px;
-  color: white;
+  color: #ffff;
+  text-decoration: none;
+  transition: all 300ms ease;
 }
 
 .nav__link--anchor-primary:hover {
-  background-color: #5d3eff;
+  background-color: #3c3b3f;
+  
 }
 
 .personal__logo {
   font-size: 24px;
-  color: #6030b1;
+  color: #1abc9c;
   margin: 0 12px;
   font-weight: bold;
+}
+
+/* ABOUT ME */
+
+#about-me {
+  min-height: 100vh; /** so you can see it is the entire height of the page **/
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  
+}
+
+.about-me__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-me__info--container {
+  display: flex;
+  flex-direction: column; /** ensures text info and image are not side by side **/
+  align-items: center;  /** entire height of the page **/
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+
+}
+
+.about-me__picture--mask {
+  width: 150px;    
+  height: 150px;
+  border-radius: 30%;   /** border edges **/
+  overflow: hidden;     /** overflow: hidden; no image overflow past the circular border **/
+  box-shadow: 0 8px 36px #597e76af;
+  border-color: #5d6a67af;
+  border-style: solid;
+  margin: 0 auto;
+  margin-top: 28px;
+  margin-bottom: 16px;
+
+}
+
+.about-me__picture {
+  width: 100%;    /** needs to be 100% of its parent - .about-me__picture--mask to maintain correct sizing **/
+
+  /** Improving my own picture **/
+  transform: scale(1.8);
+  padding: 20px 4px;
+  margin: 0 auto;
+  
+} 
+
+.about-me__info--title {
+  margin-bottom: 16px;
+}
+
+.about-me__info--para {
+  font-size: 20px;
+  margin-bottom: 28px;
+}
+
+.about-me__link {
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+  padding: 16px;
+  
+}
+
+.about-me__img--container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.about-me__img--container {
+  width: 100%;
 }
