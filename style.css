@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Rosarivo:ital@0;1&family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Rosarivo:ital@0;1&family=Space+Grotesk:wght@300..700&display=swap');
 
 /* DEFAULT STYLE */
 
@@ -19,6 +19,14 @@
   flex-direction: column;
 }
 
+#languages {     /** BACKGROUND GRADIENT **/
+  min-height: 10vh;
+  width: 100%;
+  background: linear-gradient(to right, #313b37, #534e4e86);
+  display: flex;
+  flex-direction: column;
+}
+
 h1, h2, h3, h4, h5, h6 {
   color: #ffff;
   text-align: center;
@@ -28,8 +36,6 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 36px;
-  
-  
 }
 
 p {
@@ -37,16 +43,14 @@ p {
   line-height: 1.5;
   font-size: 16px;
   color: white;
-
 }
 
 span {
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Fira Mono", monospace;
   font-optical-sizing: auto;
-  font-weight: 400;
+  font-weight: 700;
   font-style: normal;
   color: #1abc9c;
-  
 }
 
 li {
@@ -74,9 +78,6 @@ li {
 
 section:nth-child(even) {    /** section background color - reusable code through inspection tool  **/
   background: linear-gradient(to right, #38403c, #534e4e79);
-  border-radius: 80px;
-  margin: 20px;
-  
 }
 
 .section__title {
@@ -94,16 +95,16 @@ section:nth-child(even) {    /** section background color - reusable code throug
 /* NAVIGATION BAR */
 
 .dashboard {   /** NAVIGATION DASHBOARD  **/
-  max-width: 1400px;
+  max-width: 100%;
   margin: 1rem ;
   padding: 1rem;
-  background: #141419e6;
+  width: 100%;
+  background: #1414193d;
   border-radius: 16px;
   box-shadow: 0 12px 36px rgba(0,0,0,0.6);
   backdrop-filter: blur(60px);
   transition: all 0.3s ease;
 }
-
 
 nav {
   height: 100px;
@@ -228,6 +229,18 @@ nav {
 
 /* TECH - STACK  */
 
+.dashboard--tech-stack {   /** NAVIGATION DASHBOARD  **/
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 50px;
+  width: 100vw;
+  background: #1414193d;
+  border-radius: 40px;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.6);
+  backdrop-filter: blur(60px);
+  transition: all 0.3s ease;
+  background: linear-gradient(to right, #38403c, #534e4e79);
+}
 
 .language {
   width: 25%;          /** THIS IS THE PARENT TO .language__img 
@@ -276,4 +289,81 @@ nav {
 .language:hover .language__name {
   transform: scale(0.8);
   opacity: 1;           /** subtle fade in 0 --> 1 for the language text when it appears **/
+}
+
+/** PROJECTS **/
+
+.project__img {
+  width: 100%;   /** matches the .row width to correctly fit **/
+  transition: all 350ms ease;  /** added so you do not instantly receive the blurred zoom on hover **/
+}
+
+.project__wrapper {
+  display: flex;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.44);
+  border-radius: 30px;     /** will not show for the wrapper if overflow is not hidden (image leaking out the wrapper) **/
+  overflow: hidden;     /** prevent image overflowing the border radius **/
+  position: relative;
+}
+
+.project__wrapper:before {
+  content: "";
+  position: absolute;     /** positioned at absolute to avoid affecting the position of other aspects of the page **/
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #1c1d25;
+  opacity: 0;
+  transition: opacity 450s ease;   /** state what you are transitioning **/
+  z-index: 2;
+}
+
+.project__wrapper:hover .project__wrapper:before {
+  opacity: 0.75;
+}
+
+.project:hover .project__img {
+  transform: scale(1.075) translateY(18px);
+  filter: blur(5px);
+}
+
+.project:hover .project__description {
+  opacity: 1;
+}
+
+.project__list {
+  padding-top: 40px;
+}
+
+.project__description {
+  position: absolute;
+  top: 50%;
+  left: 90px;
+  transform: translateY(-50%);
+  max-width: 550px;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+}
+
+.project__description--title {
+  font-size: 40px;
+}
+
+.project__description--para {
+  margin: 16px 0;
+}
+
+.project__description--link {
+  font-size: 20px;
+  margin-right: 16px;
+  text-decoration: none;
+}
+
+.project__description--title, .project__description--sub-title, 
+.project__description--para, 
+.project__description--link {
+  text-align: left;
+  color: white;
 }
