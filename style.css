@@ -10,6 +10,9 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 
 #about-me, #projects {     /** BACKGROUND GRADIENT **/
   min-height: 100vh;
@@ -25,6 +28,14 @@
   background: linear-gradient(to right, #313b37, #534e4e86);
   display: flex;
   flex-direction: column;
+}
+
+span {
+  font-family: "Fira Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  color: #1abc9c;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -45,12 +56,38 @@ p {
   color: white;
 }
 
-span {
-  font-family: "Fira Mono", monospace;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
-  color: #1abc9c;
+a {
+  text-decoration: none;
+  position: relative;
+  transition: opacity 300ms ease;
+}
+
+a:hover, i:hover {
+  opacity: 0.7;
+}
+
+.link__hover-effect:after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  background-color: black;
+  width: 0;       /** to animate the entire item **/
+  bottom: -5px;
+  right: 0;
+  transition: all 300ms ease
+}
+
+.link__hover-effect--white:after {      /** : -- pseudo elements **/
+  background-color: #ffff;
+}
+
+.link__hover-effect--black:after {      /** : -- pseudo elements **/
+  background-color: #000000;
+}
+
+.link__hover-effect:hover:after {
+  width: 100%;       /** to animate the entire item **/
+  left: 0;
 }
 
 li {
@@ -70,6 +107,7 @@ li {
   max-width: 800px; /** ensures info and image under the row div 
   are not the entire width of the page **/
   margin: 0 auto; /** automatically centers the text based on equal margin values **/
+  padding: 0 12px;
 }
 
 .container {
@@ -92,12 +130,15 @@ section:nth-child(even) {    /** section background color - reusable code throug
   color:#ffff
 }
 
+
+
 /* NAVIGATION BAR */
 
 .dashboard {   /** NAVIGATION DASHBOARD  **/
   max-width: 100%;
-  margin: 1rem ;
-  padding: 1rem;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 10px;
   width: 100%;
   background: #1414193d;
   border-radius: 16px;
@@ -114,6 +155,7 @@ nav {
   display: flex;    /* display flex and justify content will center the nav bar to both sides of the page */
   justify-content: space-between;  
   align-items: center;   /* center nav text vertically */
+  padding: 0 12px;
 }
 
 .nav__link--list {
@@ -127,7 +169,6 @@ nav {
 .nav__link--anchor {
   margin: 0 12px; 
   color: #ffff;
-  text-decoration: none;
   font-weight: 700;
 }
 
@@ -135,6 +176,7 @@ nav {
   padding: 8px 20px;
   border-radius: 50px;
   color: #ffff;
+  background-color: #1abc9c;
   text-decoration: none;
   transition: all 300ms ease;
 }
@@ -187,34 +229,68 @@ nav {
   margin: 0 auto;
   margin-top: 28px;
   margin-bottom: 16px;
+  animation: animate-profile-picture 800ms 200ms backwards;
+}
 
+@keyframes animate-profile-picture {
+  0% {
+    transform: scale(0);
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .about-me__picture {
   width: 100%;    /** needs to be 100% of its parent - .about-me__picture--mask to maintain correct sizing **/
-
   /** Improving my own picture **/
-  transform: scale(1.8);
-  padding: 20px 4px;
-  margin: 0 auto;
-  
+  transform: scale(1.7);
+  padding-top: 14px;
 } 
 
 .about-me__info--title {
   margin-bottom: 16px;
+  animation: fade-up 650ms 400ms ease;
 }
 
 .about-me__info--para {
   font-size: 20px;
   margin-bottom: 28px;
+  animation: fade-up 650ms 600ms ease;
 }
 
 .about-me__link {
   font-size: 20px;
   color: white;
-  text-decoration: none;
-  padding: 16px;
-  
+  padding: 0 16px;
+}
+
+.about-me__link {
+  animation: fade-up 650ms 800ms ease;
+}
+
+.about-me__img {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  max-width: 500px;
+  justify-content: center;
+  align-items: center;
+  animation: fade-in 1200ms 800ms backwards;
+}
+
+@keyframes fade-up{
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .about-me__img--container {
@@ -227,9 +303,20 @@ nav {
   width: 100%;
 }
 
+@keyframes fade-in{
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* TECH - STACK  */
 
-.dashboard--tech-stack {   /** NAVIGATION DASHBOARD  **/
+.dashboard--tech-stack {   /** TECHNOLOGY STACK DASHBOARD  **/
   max-width: 100%;
   margin: 0 auto;
   padding: 50px;
@@ -243,7 +330,7 @@ nav {
 }
 
 .language {
-  width: 25%;          /** THIS IS THE PARENT TO .language__img 
+  width: 25%;          /** THIS IS THE PARENT to .language__img 
   25% of the width of the container (100% width of the page) **/
   display: flex;
   justify-content: center;     /** flex-->jcc centers the text at the top of the language image **/ 
@@ -293,6 +380,15 @@ nav {
 
 /** PROJECTS **/
 
+.project {
+  margin-bottom: 135px;
+}
+
+.project:last-child {
+  margin-bottom: 40px;   /** :last-child targets the last item and
+  closes the gap between it and the end of the page (shortening the gap) **/
+}
+
 .project__img {
   width: 100%;   /** matches the .row width to correctly fit **/
   transition: all 350ms ease;  /** added so you do not instantly receive the blurred zoom on hover **/
@@ -315,12 +411,12 @@ nav {
   width: 100%;
   background-color: #1c1d25;
   opacity: 0;
-  transition: opacity 450s ease;   /** state what you are transitioning **/
+  transition: opacity 450ms ease;   /** state what you are transitioning **/
   z-index: 2;
 }
 
-.project__wrapper:hover .project__wrapper:before {
-  opacity: 0.75;
+.project:hover .project__wrapper:before {
+  opacity: 0.55;
 }
 
 .project:hover .project__img {
@@ -330,6 +426,8 @@ nav {
 
 .project:hover .project__description {
   opacity: 1;
+  transform: translateY(-50%);   /** centering the text description 
+  after transition when hovering **/
 }
 
 .project__list {
@@ -340,11 +438,11 @@ nav {
   position: absolute;
   top: 50%;
   left: 90px;
-  transform: translateY(-50%);
+  transform: translateY(100%);   /** starting point for the text description **/
   max-width: 550px;
   z-index: 3;
   opacity: 0;
-  transition: opacity 300ms ease-in;
+  transition: transform 450ms, opacity 300ms ease-in;    /** transform needs to be added for effect and use a comma for 2 separate transitions. **/
 }
 
 .project__description--title {
@@ -366,4 +464,127 @@ nav {
 .project__description--link {
   text-align: left;
   color: white;
+}
+
+/** FOOTER **/
+
+footer{
+  background: linear-gradient(to right, #313b37db, #534e4e5f);
+  
+}
+
+.footer__logo {
+  margin-bottom: 20px;
+}
+
+.footer__social--list {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  justify-content: space-around;     /** even, wide spacing -- add max width if you want to make text closer **/ 
+  margin-bottom: 28px;
+
+}
+
+.footer__row {
+  display: flex;  /** align content next to each other **/
+  padding: 8% 0;
+  flex-direction: column;
+  align-items: center;        /** centers it vertically by default without flex direction coloumn**/
+  justify-content: center;   /** centers it horizontally by default flex direction coloumn **/
+}
+
+.footer__logo--img {
+  width: 150px;
+  height: 100px;
+  
+}
+
+.footer__social--link, 
+.footer__copyright, 
+.footer__logo--popup {
+  color: #ffffff;
+}
+
+
+.footer__logo--popup {
+  position: absolute;
+  right: 0;
+  top: 30px;
+  font-weight: 700;
+  opacity: 0;
+  transition: all 300ms ease;
+}
+
+.footer__anchor {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.footer__anchor:hover .footer__logo--popup {
+  transform: translateX(60px);
+  opacity: 1;
+}
+
+
+/** small phones, tablets, and  **/
+@media (max-width: 768px){
+  nav {
+    height: 68px
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .about-me__info--para {
+    font-size: 18px;
+  }
+
+  .language {
+    width: calc(100% / 3);   /** how many language icons you want on each row **/
+  }
+
+  .project__description--para {
+    font-size: 14px;
+  }
+
+   .project__description--para {
+     left: 30px;
+     padding-right: 30px;
+  }
+}
+
+/** small phones **/
+@media (max-width: 480px) {
+  .nav__link:not(:last-child) {        /** links that are not last in width **/
+    display: none;
+  }        
+  
+  .project__description {             /** because it is position absolute push it all the way to the left**/
+    padding: 0;
+    left: 0;
+    width: 100%;
+    
+  }
+
+  .project__description--para {
+    display: none;
+  }
+
+  .project__description--links {
+    display: flex;
+    justify-content: center;
+  }
+
+  .project__description--title {
+    font-size: 32px;
+    line-height: 1;
+    text-align: center;
+  }
+
+  .project__description--sub-title {
+    text-align: center;
+    margin: 12px 0;
+  }
 }
