@@ -144,7 +144,19 @@ section:nth-child(even) {    /** section background color - reusable code throug
   color:#ffff
 }
 
+.animated-glow:hover {
+  color:#fafafa;
+  animation: glow 10s ease-in-out infinite;
+}
 
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #ffff, 0 0 20px #ffff, 0 0 30px #4bb894, 0 0 40px #4bb894;
+  }
+  to{
+    text-shadow: 0 0 20px #ffff, 0 0 30px #ffff, 0 0 40px #2d2036db, 0 0 50px #4bb894;
+  }
+}
 
 /* NAVIGATION BAR */
 
@@ -183,7 +195,7 @@ nav {
 .nav__link--anchor {
   margin: 0 12px; 
   color: #ffff;
-  font-weight: 700;
+  font-weight: 300;
 }
 
 .nav__link--anchor-primary {
@@ -196,7 +208,7 @@ nav {
 }
 
 .nav__link--anchor-primary:hover {
-  background-color: #3c3b3f;
+  background-color: #635b7b;
   
 }
 
@@ -206,6 +218,7 @@ nav {
   margin: 0 12px;
   font-weight: bold;
 }
+
 
 /* ABOUT ME */
 
@@ -277,11 +290,14 @@ nav {
   animation: fade-in 1200ms 600ms backwards;
 }
 
+
+
 .about-me__link {
   font-size: 20px;
   color: white;
   padding: 0 16px;
 }
+
 
 .about-me__link {
   animation: fade-in 1200ms 900ms backwards;
@@ -297,16 +313,6 @@ nav {
   animation: fade-in 1200ms 950ms backwards;
 }
 
-@keyframes fade-up{
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 .about-me__img--container {
   flex: 1;
