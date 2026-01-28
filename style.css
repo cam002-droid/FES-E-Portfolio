@@ -1,6 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Rosarivo:ital@0;1&family=Space+Grotesk:wght@300..700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Baskerville:ital@0;1&family=Space+Grotesk:wght@300..700&display=swap');
 /* DEFAULT STYLE */
 
 *{
@@ -21,7 +20,7 @@ html {
   min-height: 100vh;
   width: 100%;
   font-family: "Inter", sans-serif;
-  background: linear-gradient(to right, #2d2036db, #344544);
+  background: linear-gradient(to right, #18111d50, #344544);
   display: flex;
   flex-direction: column;
 
@@ -30,17 +29,19 @@ html {
 #languages {     /** BACKGROUND GRADIENT **/
   min-height: 10vh;
   width: 100%;
-  background: linear-gradient(to right, #2d2036db, #344544);
+  background: linear-gradient(to right, #18111d50, #344544);
   display: flex;
   flex-direction: column;
 }
 
-span {
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  font-style: normal;
-  color: #1abc9c;
+#about-me { 
+  padding-top: 150px; 
+}
+#languages { 
+  padding-top: 80px; 
+}
+#projects { 
+  padding-top: 60px; 
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -57,9 +58,8 @@ h1 {
 }
 
 .dashboard__img {
-  width: 200px;
-  height: 250px;
-  padding-top: 10px;
+  height: 275px;
+  padding: 4px;
   margin: 0 8px;
 }
 
@@ -77,32 +77,9 @@ a {
 }
 
 a:hover, i:hover {
-  opacity: 0.7;
+  opacity: 1;
 }
 
-.link__hover-effect:after {
-  content: "";
-  position: absolute;
-  height: 3px;
-  background-color: black;
-  width: 0;       /** to animate the entire item **/
-  bottom: -5px;
-  right: 0;
-  transition: all 300ms ease
-}
-
-.link__hover-effect--white:after {      /** : -- pseudo elements **/
-  background-color: #ffff;
-}
-
-.link__hover-effect--black:after {      /** : -- pseudo elements **/
-  background-color: #000000;
-}
-
-.link__hover-effect:hover:after {
-  width: 100%;       /** to animate the entire item **/
-  left: 0;
-}
 
 li {
   list-style: none;
@@ -129,48 +106,65 @@ li {
 }
 
 section:nth-child(even) {    /** section background color - reusable code through inspection tool  **/
-  background: linear-gradient(to right, #38403c, #534e4e79);
+  background: linear-gradient(to right, #18111d50, #344544);
 }
 
 .section__title {
   margin-bottom: 20px;
 }
 
-.text--teal {
-  color:#1abc9c
+.text--name {
+  color: white;
+  font-family: "Inter", sans-serif;
+  filter: drop-shadow(0px 0px 0px 60px #1414193d);
+  -webkit-backdrop-filter: drop-shadow(0px 0px 0px 10px #1414193d);
+  font-weight: 400;
+  opacity: 1;
+}
+
+.text__teal {
+  color:#ffff;
+  font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  font-style: italic;
 }
 
 .text--white {
   color:#ffff
 }
 
-.animated-glow:hover {
-  color:#fafafa;
-  animation: glow 10s ease-in-out infinite;
+.box-icon__thinking {
+  color: white;
+  transition: transform 450ms ease-in;
+ 
 }
 
-@keyframes glow {
-  from {
-    text-shadow: 0 0 10px #ffff, 0 0 20px #ffff, 0 0 30px #4bb894, 0 0 40px #4bb894;
-  }
-  to{
-    text-shadow: 0 0 20px #ffff, 0 0 30px #ffff, 0 0 40px #2d2036db, 0 0 50px #4bb894;
-  }
+.box-icon__thinking:hover {
+  transform: rotate(180deg);
+
 }
+
+
+
 
 /* NAVIGATION BAR */
 
 .dashboard {   /** NAVIGATION DASHBOARD  **/
+  position: fixed;
   max-width: 100%;
-  margin: 0 auto;
-  padding: 20px;
-  margin-top: 10px;
+  top: 10px;
+  left: 0;
+  right: 0;
   width: 100%;
+  padding: 20px;
+  margin: 0;  
   background: #1414193d;
   border-radius: 16px;
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.76);
   backdrop-filter: blur(60px);
   transition: all 0.3s ease;
+  z-index: 20;
+  animation: fade-in 1200ms 250ms backwards;
 }
 
 nav {
@@ -188,8 +182,20 @@ nav {
   display: flex;   /* puts the links side-by-side */
 }
 
+
+.nav__link {
+  opacity: 0.65;
+  transition: opacity 1s ease;
+
+}
+
+.nav__link:hover {
+  opacity: 1;
+}
+
 .link__hover-effect:hover {
-  color: #1abc9c;
+  color: #ffff;
+  
 }
 
 .nav__link--anchor {
@@ -200,16 +206,36 @@ nav {
 
 .nav__link--anchor-primary {
   padding: 8px 20px;
-  border-radius: 50px;
+  border-radius: 15px;
   color: #ffff;
-  background-color: #1abc9c;
+  background-color: #635b7b;
   text-decoration: none;
-  transition: all 300ms ease;
+  transition: background-color 1s ease, opacity 10s ease-in;
 }
 
 .nav__link--anchor-primary:hover {
-  background-color: #635b7b;
+  background-color: #4208f3;
   
+}
+
+.link__hover-effect:after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  background-color: black;
+  width: 0;       /** to animate the entire item **/
+  bottom: -5px;
+  right: 0;
+  transition: all 450ms ease
+}
+
+.link__hover-effect--white:after {      /** : -- pseudo elements **/
+  background-color: #6b39ff;
+}
+
+.link__hover-effect:hover:after {
+  width: 100%;       /** to animate the entire item **/
+  left: 0;
 }
 
 .personal__logo {
@@ -254,22 +280,12 @@ nav {
   border-color: #5d6a67af;
   border-style: solid;
   margin: 0 auto;
-  margin-top: 28px;
-  margin-bottom: 16px;
-  animation: animate-profile-picture 800ms 200ms backwards;
+  margin-top: 40px;
+  margin-bottom: -30px;
+  animation: fade-in 2000ms 0.7s backwards;
 }
 
-@keyframes animate-profile-picture {
-  0% {
-    transform: scale(0);
-  }
-  80% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
+
 
 .about-me__picture {
   width: 100%;    /** needs to be 100% of its parent - .about-me__picture--mask to maintain correct sizing **/
@@ -280,28 +296,142 @@ nav {
 } 
 
 .about-me__info--title {
-  margin-bottom: 60px;
-  animation: fade-in 1200ms 450ms backwards;
+  margin-top: 70px;
+  margin-bottom: 25px;
+  animation: fade-in 1200ms 650ms backwards;
 }
 
 .about-me__info--para {
-  font-size: 20px;
-  margin-bottom: 60px;
+  font-family: "Fira Sans", sans-serif;  
+  font-weight: 400;
+  font-size: 35px;
+  color: #cdcdcd;
+  margin-bottom: 30px;
   animation: fade-in 1200ms 600ms backwards;
 }
 
+.text__teal--transition {
+  animation: teal-transition 10s cubic-bezier(0.39, 0.575, 0.565, 1) 2s infinite;     /* forwards locks in the final color */
+}
 
+.text__teal--transition-1 {
+  animation: teal-transition-alt 8s ease-in-out 450ms infinite;     /* will prevent the snapback to white */
+}
+.text__teal--transition-2 {
+  animation: teal-transition-alt 10s ease-in-out 450ms infinite;     /* will prevent the snapback to white */
+}
+.text__teal--transition-3 {
+  animation: teal-transition-alt 12s ease-in-out 450ms infinite;     /* will prevent the snapback to white */
+}
+
+
+@keyframes teal-transition {
+  0%, 100%{
+    color: #cdcdcd;
+  }
+
+  50% {
+    color: #80ffcac9;
+  }
+}
+
+@keyframes teal-transition-alt {
+  0%, 100% {
+    color: #cdcdcd;
+  }
+
+  50% {
+    color: #80ffcac9;
+  }
+}
+
+.hero__para--pitch {
+  animation: fade-in 1200ms 450ms backwards;
+  font-size: 14px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+
+box-icon, .box-icon__thinking{
+  animation: fade-in 1400ms 450ms backwards;  
+}
+
+box-icon {
+  padding: 0 5px;
+}
+
+
+.cta-button {
+  display: flex;
+  width: 80px;
+  height: 80px;
+  padding: 10px;
+  background: #635b7b00;
+  border: solid 2px #ffffff20 ;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 50%;
+  top: 130px;
+  color: #ffff;
+  animation: fade-in-logo 800ms 900ms backwards;
+
+}
+
+
+@keyframes fade-in-logo{
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 .about-me__link {
   font-size: 20px;
   color: white;
   padding: 0 16px;
+  opacity: 0.65;
+  top: 30px;
+  animation: fade-in__abt-links 1200ms 900ms backwards;
+  transition: opacity 0.65s ease-in;
 }
 
 
-.about-me__link {
-  animation: fade-in 1200ms 900ms backwards;
+.about-me__link:hover {
+  opacity: 1;
 }
+
+
+@keyframes fade-in{
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in__abt-links{
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 0.65;
+    transform: translateY(0);
+  }
+}
+
 
 .about-me__img {
   display: flex;
@@ -326,16 +456,8 @@ nav {
   width: 100%;
 }
 
-@keyframes fade-in{
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+
+
 
 /* TECH - STACK  */
 
@@ -370,35 +492,7 @@ nav {
 
 
 .glow__img--orange {
-  display: block; 
-  transition: filter 300ms ease-out,
-              opacity 300ms ease-out,
-              box-shadow 300ms ease-out;
-}
-
-.glow__img--orange:hover {
-  filter: brightness(100%);
-  opacity: 1;
-  box-shadow:
-    0 0 40px #f1c26366,
-    0 0 60px #6365f16b,
-    0 0 80px #f7a604ce;
-}
-
-.glow__img--wrapper {
-  background: transparent;
-  position: relative;
-  display: inline-block;
-}
-
-
-.glow__img--wrapper::before {
-  content: "";
-  position: absolute;
-  inset: -20px;              /** gives it size **/
-  background: radial-gradient(circle,#f1c26366, transparent 70%);
-  filter: blur(20px);
-  z-index: -3;               /* keeps glow behind image */
+  filter: drop-shadow(0 0 0 );
 }
 
 .language__img {
@@ -430,7 +524,7 @@ nav {
   opacity: 0;
 }
 
-.language:hover .language__name{
+.language:hover .language__name {
   transform: scale(0.8);
   opacity: 1;           /** subtle fade in 0 --> 1 for the language text when it appears **/
 }
@@ -545,15 +639,16 @@ footer{
 
 .footer__row {
   display: flex;  /** align content next to each other **/
-  padding: 25% 0;
-  flex-direction: column;
+  padding: 20px;
+  flex-direction: row;
   align-items: center;        /** centers it vertically by default without flex direction coloumn**/
   justify-content: center;   /** centers it horizontally by default flex direction coloumn **/
+  
 }
 
 .footer__logo--img {
-  width: 300px;
-  height: 400px;
+  width: 200px;
+  height: 200px;
   
 }
 
@@ -578,7 +673,7 @@ footer{
 
 .footer__anchor {
   position: relative;
-  margin-bottom: 10px;
+  ;
 }
 
 .footer__anchor:hover .footer__logo--popup {
