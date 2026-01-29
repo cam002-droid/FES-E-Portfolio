@@ -489,7 +489,7 @@ box-icon {
   filter: brightness(80%);
   opacity: 0.85;
   transform: scale(1.3);
-  transform: 
+  transition: filter 0.4s ease-in-out; 
 }
 
 
@@ -655,24 +655,38 @@ footer{
   width: 100%;
   max-width: 500px;
   display: flex;
-  justify-content: space-around;     /** even, wide spacing -- add max width if you want to make text closer **/ 
-  margin-bottom: 28px;
-
+  justify-content: space-evenly;     /** even, wide spacing -- add max width if you want to make text closer **/ 
+  align-content: center;
+ 
 }
 
 .footer__row {
   display: flex;  /** align content next to each other **/
   padding: 20px;
+  outline: solid 2px gray;
   flex-direction: row;
   align-items: center;        /** centers it vertically by default without flex direction coloumn**/
   justify-content: center;   /** centers it horizontally by default flex direction coloumn **/
+  align-content: center;
+  text-align: center;
+  max-width: 100%;
   
 }
 
 .footer__logo--img {
-  width: 200px;
   height: 200px;
   
+}
+
+.footer__social--link {
+padding: 8px;
+opacity: 0.65;
+}
+
+.footer__copyright {
+  opacity: 0.65;
+  font-size: 10px;
+  white-space: nowrap;
 }
 
 .footer__social--link, 
@@ -696,12 +710,17 @@ footer{
 
 .footer__anchor {
   position: relative;
-  ;
+  
 }
 
 .footer__anchor:hover .footer__logo--popup {
-  transform: translateX(60px);
+  transform: translateY(-60px);
   opacity: 1;
+}
+
+.footer__logo--popup:active {
+  transform: translateY(60px)
+  opacity: 0.65;
 }
 
 
@@ -731,7 +750,35 @@ footer{
      left: 30px;
      padding-right: 30px;
   }
+
+  .footer__row {
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px;
+  }
+
+  .footer__social--list {
+    flex-wrap: wrap;          /* prevents overflow */
+    gap: 10px;
+    padding: 0 12px;
+  }
+
+  .footer__copyright {
+    white-space: nowrap;       /* forces single line */
+    font-size: 14px;           /* helps it fit */
+  }
+
+  .footer__logo--img {
+    height: 120px;             /* 200px is big on iPhone */
+    max-width: 100%;
+  }
+
 }
+
+
+
+
+
 
 /** small phones **/
 @media (max-width: 480px) {
@@ -765,4 +812,10 @@ footer{
     text-align: center;
     margin: 12px 0;
   }
+
+ 
 }
+
+
+
+
