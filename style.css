@@ -58,8 +58,9 @@ h1 {
 }
 
 .dashboard__img {
-  height: 275px;
-  padding: 4px;
+  display: block;
+  height: 200px;
+  padding: 10px;
   margin: 0 8px;
 }
 
@@ -345,7 +346,7 @@ nav {
   }
 }
 
-.hero__para--pitch {
+.abt-me__para--pitch {
   animation: fade-in 1200ms 450ms backwards;
   font-size: 14px;
   color: white;
@@ -488,17 +489,38 @@ box-icon {
   filter: brightness(80%);
   opacity: 0.85;
   transform: scale(1.3);
+  transform: 
 }
 
 
-.glow__img--orange {
-  filter: drop-shadow(0 0 0 );
+
+
+.language:hover .glow__img--orange {
+  filter: drop-shadow(0px 0px 20px #ff9d00);
+  -webkit-animation: drop-shadow(0px 0px 20px #ff9d00);
 }
+
+.language:hover .glow__img--blue {
+  filter: drop-shadow(0px 0px 20px #001aff);
+  -webkit-animation: drop-shadow(0px 0px 20px #001aff);
+}
+
+.language:hover .glow__img--gold {
+  filter: drop-shadow(0px 0px 20px #ecd000);
+  -webkit-animation: drop-shadow(0px 0px 20px #ecd000);
+}
+
+.language:hover .glow__img--neon {
+  filter: drop-shadow(0px 0px 20px #80ffcac9);
+  -webkit-animation: drop-shadow(0px 0px 20px #80ffcac9);
+}
+
+
 
 .language__img {
   width: 100%;          /** % makes image responsive **/    /** % makes image responsive **/
   max-width: 100px;
-  transition: all 300ms ease-out;       /** % makes the hover effect smooth **/ 
+  transition: all 350ms ease-out;       /** % makes the hover effect smooth **/ 
 }
 
 .language__img--wrapper {
@@ -625,7 +647,8 @@ footer{
 }
 
 .footer__logo {
-  margin-bottom: 10px
+  margin-bottom: 10px;
+
 }
 
 .footer__social--list {
