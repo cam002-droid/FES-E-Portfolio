@@ -13,13 +13,24 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(header-h);
 }
 
+body{
+  padding-top: calc(var(--nav-height) + var(--nav-gap));
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: linear-gradient(to right, #18111d0e, #3445448f);
+
+}
 
 #approach, #about-me, #projects {     /** BACKGROUND GRADIENT **/
   width: 100%;
   font-family: "Inter", sans-serif;
-  background: linear-gradient(to right, #18111d50, #344544);
   display: flex;
   flex-direction: column;
 }
@@ -31,16 +42,17 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: calc(var(--nav-h) + 40px);
+  padding-top: var(--header-h);
 
 }
 
 :root {
-  --nav-offset: 140px;    /* adjust once */
-  --container: 1200px
-  --pad-x: 24px;
-  --section-y: clamp (64px, 8vw, 120px)
-  --nav-h: 120px;
+  --header-h: 120px;
+  --container: 1200px;
+  --pad-x: clamp(16px, 4vw, 48px);
+  --section-y: clamp(48px, 8vw, 120px);
+  --nav-gap: 10px;
+  --nav-height: 140px;
 }
 
 #approach, #projects {
@@ -51,7 +63,6 @@ html {
 #languages {     /** BACKGROUND GRADIENT **/
   min-height: 10vh;
   width: 100%;
-  background: linear-gradient(to right, #18111d50, #344544);
   display: flex;
   flex-direction: column;
 }
@@ -59,19 +70,11 @@ html {
 
 h1, h2, h3, h4, h5, h6 {
   color: #ffff;
-  text-align: center;
+  text-align: left;
   line-height: 1.25;
   
 }
 
-h1 {
-  background-image: linear-gradient(to top, #ffffff, #7a7a7af0);
-  background-clip: text;    /* 3. Clip the background to the text area */
-  -webkit-background-clip: text;
-  color: transparent;      /* 4. Make the text transparent so the background shows through */
-  -webkit-text-till-color: transparent; 
-  
-}
 
 .dashboard__img {
   display: block;
@@ -115,25 +118,36 @@ li {
   max-width: var(--container); /** ensures info and image under the row div 
   are not the entire width of the page **/
   margin: 0 auto; /** automatically centers the text based on equal margin values **/
-  padding: 0 var(--pad-x);
+  padding-inline: var(--pad-x);
+  box-sizing: border-box;
 }
 
 section {
-  padding: var(--section-y) 0;
+  padding: var(--section-y);
 }
 
 .container {
-  padding: 50px 0;
+  padding: 20px 0;
 }
 
 section:nth-child(even) {    /** section background color - reusable code through inspection tool  **/
-  background: linear-gradient(to right, #18111d50, #344544);
 }
 
 .section__title {
   font-size: 48px;
-  margin-top: 80px;
   font-weight: 400;
+  background-image: linear-gradient(to top, #ffffff, #acacacf0);
+  background-clip: text;    /* 3. Clip the background to the text area */
+  -webkit-background-clip: text;
+  color: transparent;      /* 4. Make the text transparent so the background shows through */
+  -webkit-text-till-color: transparent; 
+}
+
+.section__title--alt {
+  font-size: 40px;
+  font-weight: 400;
+  color: #7e7e7e;
+
   
 }
 
@@ -142,7 +156,7 @@ section:nth-child(even) {    /** section background color - reusable code throug
   font-family: "Inter", sans-serif;
   font-weight: 400;
   opacity: 1;
-  background-image: linear-gradient(to top, #ffffff, #00000023);
+  background-image: linear-gradient(to top, #ffffff, #c4c4c425);
   background-clip: text;    /* 3. Clip the background to the text area */
   -webkit-background-clip: text;
   color: transparent;      /* 4. Make the text transparent so the background shows through */
@@ -150,16 +164,21 @@ section:nth-child(even) {    /** section background color - reusable code throug
   
 }
 
-.text__teal {
+.text__cursive {
   color:#ffff;
   font-family: "Libre Baskerville", serif;
   font-weight: 400;
   font-style: italic;
+  background-image: linear-gradient(to right, #ffffff, #d7d7d768);
+  background-clip: text;    /* 3. Clip the background to the text area */
+  -webkit-background-clip: text;
+  color: transparent;      /* 4. Make the text transparent so the background shows through */
+  -webkit-text-till-color: transparent; 
 }
 
 .text__bold {
   font-weight: 500;
-  background-image: linear-gradient(to top, #ffffff, #00000035);
+  background-image: linear-gradient(to top, #0000009d, #ffffff);
   background-clip: text;    /* 3. Clip the background to the text area */
   -webkit-background-clip: text;
   color: transparent;      /* 4. Make the text transparent so the background shows through */
@@ -187,19 +206,18 @@ section:nth-child(even) {    /** section background color - reusable code throug
 .dashboard {   /** NAVIGATION DASHBOARD  **/
   position: fixed;
   max-width: 100%;
-  top: 10px;
+  top: 0;
   left: 0;
   right: 0;
   width: 100%;
   padding: 20px;
-  margin: 0;  
-  background: #1414193d;
-  border-radius: 16px;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.76);
+  background: rgba(20, 20, 25, 0.47);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(60px);
   transition: all 0.3s ease;
-  z-index: 20;
-  animation: fade-in 1200ms 250ms backwards;
+  z-index: 999;
+
+
 }
 
 nav {
@@ -288,7 +306,6 @@ nav {
   display: flex;
   flex-direction: column;
   text-align: center;
-  
 }
 
 .about-me__info {
@@ -312,7 +329,7 @@ nav {
   border-radius: 30%;   /** border edges **/
   overflow: hidden;     /** overflow: hidden; no image overflow past the circular border **/
   box-shadow: 0 8px 36px #597e76af;
-  border-color: #5d6a67af;
+  border-color: #0000002f;
   border-style: solid;
   margin: 0 auto;
   margin-top: 40px;
@@ -333,7 +350,7 @@ nav {
 .about-me__info--title {
   font-size: 40px;
   margin-top: 70px;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   animation: fade-in 1200ms 650ms backwards;
 }
 
@@ -387,6 +404,7 @@ nav {
   color: white;
   display: flex;
   justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
@@ -401,8 +419,7 @@ box-icon {
 
 
 .cta-button {
-  padding: 10px;
-  top: 140px;
+  top: 125px;
   border-radius: 50px;
   font-weight: 200;
   border: solid 2px #ffffff ;
@@ -493,56 +510,82 @@ box-icon {
 
  /** APPROACH  **/
 
+#approach {
+  background: linear-gradient(to bottom, #ffffff, #ffffff0f);
+
+}
+
+/* SECTION GRID: cards on left, image on right */
 .approach__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: clamp(24px, 4vw, 64px);
   align-items: center;
-  margin-top: 40px;
 }
 
-.approach-section__img {
-  width: 100%;
-  height: auto;
-  display: block;
-  max-width: 520px;
-  margin; 0
-  max-width: block;
-  
-  
-}
-
-
+/* CARD LIST: structured grid of cards */
 .approach__card--list {
-
+  display: grid;
+  gap: clamp(16px, 2.2vw, 24px);
+  position: relative; /* needed for ::before overlay */
 }
 
+/* optional soft “sheen” overlay across the whole list */
+.approach__card--list::before {
+  content: "";
+  position: absolute;
+  opacity: 0.35;
+}
 
+/* CARD: responsive sizing + refined glass */
 .approach__card {
-  display: flex;
+  display: grid;
+  gap: 10px;
+  padding: clamp(18px, 2vw, 24px);
+  border-radius: 8px;
+
+  background: linear-gradient(135deg,#ffffff24,#ffffff0a);
+
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+
+  border-bottom: 1px solid #ffffff2e;
+  box-shadow: 0 8px 28px #00000047, inset 0 1px 0 #ffffff59;
 }
 
 
-.approach__card--wrapper {
 
-}
-
-
+/* TEXT INSIDE CARD */
 .approach__description--title {
-
+  font-size: 18px;
+  font-weight: 600;
 }
-
 
 .approach__description--sub-heading {
-
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.85;
 }
-
 
 .approach__description--para {
-
+  font-size: 14px;
+  opacity: 0.80;
 }
 
+/* IMAGE WRAP (NOT the img itself) */
+.approach__img-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+/* IMAGE ITSELF */
+.approach-section__img {
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 18px;
+}
 
 
 
@@ -553,7 +596,7 @@ box-icon {
   max-width: 100%;
   margin: 0 auto;
   padding: 50px;
-  width: 100vw;
+  width: 100%;
   background: #1414193d;
   border-radius: 40px;
   box-shadow: 0 12px 36px rgba(0,0,0,0.6);
@@ -570,13 +613,6 @@ box-icon {
   justify-content: center;     /** flex-->jcc centers the text at the top of the language image **/ 
   position: relative;          /** moves to the closest relative parent **/ 
    
-}
-
-.language:hover .language__img {
-  filter: brightness(80%);
-  opacity: 0.85;
-  transform: scale(1.3);
-  transition: filter 0.4s ease-in-out; 
 }
 
 
@@ -606,6 +642,7 @@ box-icon {
   width: 100%;          /** % makes image responsive **/    /** % makes image responsive **/
   max-width: 100px;
   transition: all 350ms ease-in-out;       /** % makes the hover effect smooth **/ 
+  transform: scale(1);
 }
 
 .language__img--wrapper {
@@ -629,6 +666,7 @@ box-icon {
   transition: all 300ms ease-out;
   font-size: 20px;
   opacity: 0;
+  color: white;
 }
 
 .language:hover .language__name {
@@ -636,7 +674,12 @@ box-icon {
   opacity: 1;           /** subtle fade in 0 --> 1 for the language text when it appears **/
 }
 
-
+.language:hover .language__img {
+  filter: brightness(80%);
+  opacity: 0.85;
+  transform: scale(1.3);
+  transition: filter 0.4s ease-in-out, transform 0.8s ease; 
+}
 
 
 
@@ -735,7 +778,7 @@ box-icon {
 /** FOOTER **/
 
 footer{
-  background: linear-gradient(to right, #2516309a, #344544);
+  background: linear-gradient(to right, #25163039, #344544);
   
 }
 
@@ -930,7 +973,7 @@ opacity: 0.65;
 
   }
   
-
+}
 
 
 
@@ -970,14 +1013,4 @@ opacity: 0.65;
     margin: 12px 0;
   }
 
- 
 }
-
-
-
-
-
-
-
-
-
