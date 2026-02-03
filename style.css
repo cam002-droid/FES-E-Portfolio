@@ -24,7 +24,7 @@ html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  background: linear-gradient(to right, #18111d0e, #3445448f);
+  background: linear-gradient(to right, #18111d14, #3445448f);
 
 }
 
@@ -55,7 +55,7 @@ html, body {
   --nav-height: 140px;
 }
 
-#approach, #projects {
+#about-me, #approach, #approach-2, #approach-3, #approach-4, #projects {
   min-height: auto;      /* stop forcing 100vh + centering everywhere */
   display: block;
 }
@@ -71,7 +71,7 @@ html, body {
 h1, h2, h3, h4, h5, h6 {
   color: #ffff;
   text-align: left;
-  line-height: 1.25;
+  line-height: 1;
   
 }
 
@@ -146,9 +146,34 @@ section:nth-child(even) {    /** section background color - reusable code throug
 .section__title--alt {
   font-size: 40px;
   font-weight: 400;
-  color: #7e7e7e;
+  color: #ffff;
+}
 
+
+.section__subtitle {
+  padding-top: 24px;
+  line-height: 1.25;
+}
+
+
+.section__subtitle--pitch {
+  display: inline-flex;     /* key: shrink-wrap to content + lets align-items work */
+  align-items: center;
+  justify-content: center;
   
+  font-size: 14px;
+  color: #cdcdcd;
+  padding: 8px 16px;        /* giving it vertical and horizontal padding */
+  margin-top: 20px;
+  white-space: nowrap;
+  border-radius: 50px;
+
+  background: linear-gradient(135deg,#ffffff24,#ffffff0a);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+
+  border-bottom: 1px solid #ffffff2e;
+  box-shadow: 0 8px 28px #00000047, inset 0 1px 0 #ffffff59;
 }
 
 .text--name {
@@ -178,7 +203,7 @@ section:nth-child(even) {    /** section background color - reusable code throug
 
 .text__bold {
   font-weight: 500;
-  background-image: linear-gradient(to top, #0000009d, #ffffff);
+  background-image: linear-gradient(to top, #0000005a, #ffffff);
   background-clip: text;    /* 3. Clip the background to the text area */
   -webkit-background-clip: text;
   color: transparent;      /* 4. Make the text transparent so the background shows through */
@@ -510,15 +535,14 @@ box-icon {
 
  /** APPROACH  **/
 
-#approach {
-  background: linear-gradient(to bottom, #ffffff, #ffffff0f);
+#approach, #approach-3 {
+  background: linear-gradient(to bottom, #000000, #ffffff);
 
 }
 
 /* SECTION GRID: cards on left, image on right */
 .approach__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   gap: clamp(24px, 4vw, 64px);
   align-items: center;
 }
@@ -526,8 +550,10 @@ box-icon {
 /* CARD LIST: structured grid of cards */
 .approach__card--list {
   display: grid;
+  grid-template-columns: repeat(2, minmax(50px, 1fr));
   gap: clamp(16px, 2.2vw, 24px);
   position: relative; /* needed for ::before overlay */
+  margin-top: 20px;
 }
 
 /* optional soft “sheen” overlay across the whole list */
@@ -540,17 +566,36 @@ box-icon {
 /* CARD: responsive sizing + refined glass */
 .approach__card {
   display: grid;
-  gap: 10px;
+  gap: 16px;
+
+  min-height: 200px;
   padding: clamp(18px, 2vw, 24px);
   border-radius: 8px;
 
   background: linear-gradient(135deg,#ffffff24,#ffffff0a);
-
   backdrop-filter: blur(18px) saturate(160%);
   -webkit-backdrop-filter: blur(18px) saturate(160%);
 
   border-bottom: 1px solid #ffffff2e;
   box-shadow: 0 8px 28px #00000047, inset 0 1px 0 #ffffff59;
+
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+
+.approach__card--list .approach__list-3 {
+  display: flex;
+  flex-direction: column;
+}
+
+.approach__card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255,255,255,0.24);
+  box-shadow:
+    0 20px 48px rgba(0,0,0,0.40),
+    inset 0 1px 0 rgba(255,255,255,0.22);
 }
 
 
@@ -581,10 +626,16 @@ box-icon {
 
 /* IMAGE ITSELF */
 .approach-section__img {
-  height: auto;
+  height: 850px;
   display: block;
   margin: 0 auto;
   border-radius: 18px;
+}
+
+.approach-section__img--computer {
+  height: 600px;
+  display: block;
+  
 }
 
 
