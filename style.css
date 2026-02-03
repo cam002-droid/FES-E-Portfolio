@@ -11,48 +11,36 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: var(header-h);
-}
-
-body{
-  padding-top: calc(var(--nav-height) + var(--nav-gap));
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  background: linear-gradient(to right, #18111d14, #3445448f);
-
-}
-
-#approach, #about-me, #projects {     /** BACKGROUND GRADIENT **/
-  width: 100%;
-  font-family: "Inter", sans-serif;
-  display: flex;
-  flex-direction: column;
-}
-
-
-
-#about-me { 
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-top: var(--header-h);
-
-}
-
 :root {
   --header-h: 120px;
   --container: 1200px;
   --pad-x: clamp(16px, 4vw, 48px);
   --section-y: clamp(48px, 8vw, 120px);
   --nav-gap: 10px;
-  --nav-height: 140px;
+  --nav-height: px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(header-h);
+}
+
+body {
+  padding-top: calc(var(--nav-height) + var(--nav-gap));
+}
+
+
+#approach, #about-me, #projects {     
+  width: 100%;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
 #about-me, #approach, #approach-2, #approach-3, #approach-4, #projects {
@@ -60,12 +48,53 @@ html, body {
   display: block;
 }
 
-#languages {     /** BACKGROUND GRADIENT **/
+
+#about-me, #approach-4, #projects { 
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: var(--header-h);
+}
+
+#languages {     
   min-height: 10vh;
   width: 100%;
   display: flex;
   flex-direction: column;
 }
+
+#about-me {
+  background-image: linear-gradient(180deg, #01323d 10%, #000000 80%);
+}
+
+#approach {
+  background: linear-gradient(to bottom, #000000, #ffff);
+}
+
+#approach-2 {
+  background-image: linear-gradient(180deg, #ffff 10%, #01323d 80%);
+}
+
+#approach-3 {
+    background-image: linear-gradient(180deg, #01323d 15%, #000000 80%);
+}
+
+#approach-4 {
+    background-image: linear-gradient(180deg, #000000 15%, #ffff 80%);
+}
+
+#languages {
+    background-image: linear-gradient(180deg, #ffff 15%, #01323d 80%);
+}
+
+#projects {
+    background-image: linear-gradient(180deg, #01323d 15%, #000000 80%);
+}
+
+
+
+
 
 
 h1, h2, h3, h4, h5, h6 {
@@ -133,8 +162,9 @@ section {
 section:nth-child(even) {    /** section background color - reusable code through inspection tool  **/
 }
 
-.section__title {
-  font-size: 48px;
+.section__title--teck-stack {
+  text-align: center;
+  font-size: 40px;
   font-weight: 400;
   background-image: linear-gradient(to top, #ffffff, #acacacf0);
   background-clip: text;    /* 3. Clip the background to the text area */
@@ -149,10 +179,22 @@ section:nth-child(even) {    /** section background color - reusable code throug
   color: #ffff;
 }
 
+.section__title--alt-black {
+  font-size: 40px;
+  font-weight: 400;
+  color: #000000;
+}
+
 
 .section__subtitle {
   padding-top: 24px;
   line-height: 1.25;
+}
+
+.section__subtitle-black {
+  padding-top: 24px;
+  line-height: 1.25;
+  color: #000000;
 }
 
 
@@ -160,9 +202,31 @@ section:nth-child(even) {    /** section background color - reusable code throug
   display: inline-flex;     /* key: shrink-wrap to content + lets align-items work */
   align-items: center;
   justify-content: center;
-  
-  font-size: 14px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 12px;
   color: #cdcdcd;
+  padding: 8px 16px;        /* giving it vertical and horizontal padding */
+  margin-top: 20px;
+  white-space: nowrap;
+  border-radius: 50px;
+
+  background: linear-gradient(135deg,#ffffff24,#ffffff0a);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+
+  border-bottom: 1px solid #ffffff2e;
+  box-shadow: 0 8px 28px #00000047, inset 0 1px 0 #ffffff59;
+}
+
+.section__subtitle--pitch-black {
+  display: inline-flex;     /* key: shrink-wrap to content + lets align-items work */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 500;
+  font-size: 12px;
+  color: #0000003f;
   padding: 8px 16px;        /* giving it vertical and horizontal padding */
   margin-top: 20px;
   white-space: nowrap;
@@ -201,6 +265,18 @@ section:nth-child(even) {    /** section background color - reusable code throug
   -webkit-text-till-color: transparent; 
 }
 
+.text__cursive--black {
+  color:#ffff;
+  font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  font-style: italic;
+  background-image: linear-gradient(to right, #0000005a, #d7d7d768);
+  background-clip: text;    /* 3. Clip the background to the text area */
+  -webkit-background-clip: text;
+  color: transparent;      /* 4. Make the text transparent so the background shows through */
+  -webkit-text-till-color: transparent; 
+}
+
 .text__bold {
   font-weight: 500;
   background-image: linear-gradient(to top, #0000005a, #ffffff);
@@ -220,10 +296,30 @@ section:nth-child(even) {    /** section background color - reusable code throug
 
 .box-icon__thinking:hover {
   transform: rotate(180deg);
-
 }
 
 
+@keyframes fade-in{
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in__abt-links{
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 0.65;
+    transform: translateY(0);
+  }
+}
 
 
 /* NAVIGATION BAR */
@@ -351,10 +447,10 @@ nav {
 .about-me__picture--mask {
   width: 150px;    
   height: 150px;
-  border-radius: 30%;   /** border edges **/
+  border-radius: 50%;   /** border edges **/
   overflow: hidden;     /** overflow: hidden; no image overflow past the circular border **/
-  box-shadow: 0 8px 36px #597e76af;
-  border-color: #0000002f;
+  box-shadow: 0 0 24px #597e76af;
+  border-color: #ffffff;
   border-style: solid;
   margin: 0 auto;
   margin-top: 40px;
@@ -444,19 +540,85 @@ box-icon {
 
 
 .cta-button {
-  top: 125px;
-  border-radius: 50px;
+  display: inline-flex;
+  position: relative;
   font-weight: 200;
-  border: solid 2px #ffffff ;
   margin: 0 auto;
-  padding: 20px;
+  
+  top: 125px;
+  padding: 8px 16px;
+  border-radius: 50px;
+
+
   justify-content: center;
   align-items: center;
-  text-align: center;
+  
   color: #ffff;
-  font-weight: 400;
-  animation: fade-in-logo 850ms 1200ms backwards;
+  opacity: 0.65;
+  border-bottom: solid 1px #ffffff2e ;
 
+
+  background: linear-gradient(135deg,#ffffff24,#ffffff0a);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+
+  animation: fade-in-logo 850ms 1200ms backwards;
+  transition: opacity 650ms ease;
+  
+
+}
+
+ .cta-button .fa-angle-down {
+  position: absolute;
+  inset: 0;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: transform 5s ease;
+}
+
+.fa-angle-down {
+  opacity: 0;
+  transform: translate(-2px);
+
+}
+
+.cta-button__text {
+  opacity: 1;
+  
+}
+
+
+.cta-button:hover {
+  opacity: 1;
+  
+}
+
+.cta-button:hover .cta-button__text {
+  opacity: 0;
+}
+
+.cta-button:hover .fa-angle-down {
+  opacity: 1;
+  transform: translateY(0);
+  filter: drop-shadow(0 4px 36px #ff0000);
+  -webkit-animation: drop-shadow(0 4px 36px #ff0000);
+}
+
+
+.cta-button:active {
+  animation: shrink 1s ease-in
+}
+
+@keyframes shrink {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.8);
+  }
 }
 
 
@@ -466,7 +628,7 @@ box-icon {
     transform: translateY(-100px);
   }
   100% {
-    opacity: 1;
+    opacity: 0.65;
     transform: translateY(0);
   }
 }
@@ -484,29 +646,6 @@ box-icon {
 
 .about-me__link:hover {
   opacity: 1;
-}
-
-
-@keyframes fade-in{
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fade-in__abt-links{
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  100% {
-    opacity: 0.65;
-    transform: translateY(0);
-  }
 }
 
 
@@ -535,10 +674,7 @@ box-icon {
 
  /** APPROACH  **/
 
-#approach, #approach-3 {
-  background: linear-gradient(to bottom, #000000, #ffffff);
 
-}
 
 /* SECTION GRID: cards on left, image on right */
 .approach__grid {
