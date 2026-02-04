@@ -69,19 +69,19 @@ body {
 }
 
 #approach {
-  background: linear-gradient(to bottom, #000000, #ffff);
+  background: linear-gradient(to bottom, #000000, #01323d, #ffff, #01323d);
 }
 
 #approach-2 {
-  background-image: linear-gradient(180deg, #ffff 10%, #01323d 80%);
+  background-image: linear-gradient(180deg, #01323d, #000000 45%, #000000 30%);
 }
 
 #approach-3 {
-    background-image: linear-gradient(180deg, #01323d 15%, #000000 80%);
+    background-image: linear-gradient(180deg, #000000 15%, #01323d 40%, #ffff 90%);
 }
 
 #approach-4 {
-    background-image: linear-gradient(180deg, #000000 15%, #ffff 80%);
+    background-image: linear-gradient(180deg, #000000 15%, #01323d 40%, #000000 90%);
 }
 
 #languages {
@@ -562,9 +562,8 @@ box-icon {
   backdrop-filter: blur(18px) saturate(160%);
   -webkit-backdrop-filter: blur(18px) saturate(160%);
 
-  animation: fade-in-logo 850ms 1200ms backwards;
+  animation: fade-in-logo 3s 1200ms backwards;
   transition: opacity 650ms ease;
-  
 
 }
 
@@ -576,35 +575,40 @@ box-icon {
   align-items: center;
   justify-content: center;
   text-align: center;
-  transition: transform 5s ease;
+  transition: opacity 250ms ease, transform 150ms ease-in-out;
 }
 
 .fa-angle-down {
   opacity: 0;
-  transform: translate(-2px);
+  transform: scale(0.4);
 
 }
 
 .cta-button__text {
-  opacity: 1;
-  
+  opacity: 0.65;
+  transform: scale(1);
+  transform-origin: center;
+  transition: opacity 450ms ease, transform 150ms ease-in-out;
 }
-
+ 
 
 .cta-button:hover {
   opacity: 1;
+  filter: drop-shadow(0px 0px 50px #00ffbf); /* Horizontal offset, Vertical offset, Blur radius, Color */
+  -webkit-filter: drop-shadow(0px 0px 10px #00ffbf);
   
 }
 
 .cta-button:hover .cta-button__text {
   opacity: 0;
+  transform: scale(0);
 }
 
 .cta-button:hover .fa-angle-down {
   opacity: 1;
-  transform: translateY(0);
-  filter: drop-shadow(0 4px 36px #ff0000);
-  -webkit-animation: drop-shadow(0 4px 36px #ff0000);
+  transform: scale(1);
+  display: inline-flex;
+  
 }
 
 
@@ -683,6 +687,7 @@ box-icon {
   align-items: center;
 }
 
+
 /* CARD LIST: structured grid of cards */
 .approach__card--list {
   display: grid;
@@ -692,17 +697,26 @@ box-icon {
   margin-top: 20px;
 }
 
-/* optional soft “sheen” overlay across the whole list */
+.approach__list-3 {
+  display: flex;
+  flex-direction: column; /* ← stack vertically */
+  gap: 24px;              /* spacing between cards */
+  max-width: 500px;
+}
+
+/*  soft “sheen” overlay across the whole list */
 .approach__card--list::before {
   content: "";
   position: absolute;
   opacity: 0.35;
 }
 
+
 /* CARD: responsive sizing + refined glass */
 .approach__card {
   display: grid;
   gap: 16px;
+  
 
   min-height: 200px;
   padding: clamp(18px, 2vw, 24px);
@@ -721,11 +735,6 @@ box-icon {
     border-color 220ms ease;
 }
 
-.approach__card--list .approach__list-3 {
-  display: flex;
-  flex-direction: column;
-}
-
 .approach__card:hover {
   transform: translateY(-6px);
   border-color: rgba(255,255,255,0.24);
@@ -734,28 +743,47 @@ box-icon {
     inset 0 1px 0 rgba(255,255,255,0.22);
 }
 
+.approach__card:hover .bx-community, 
+.approach__card:hover .bx-psychology {
+  opacity: 1;
+  transition: opacity 450ms ease-in-out ;
+}
+
+.bx-community, .bx-psychology {
+  font-size: 70px;
+  color: #cdcdcd;
+  opacity: 0.35;
+  transition: opacity 450ms ease-in-out ;
+
+}
+
 
 
 /* TEXT INSIDE CARD */
 .approach__description--title {
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.25;
 }
 
 .approach__description--sub-heading {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   opacity: 0.85;
+  margin-top: 10px;
 }
 
 .approach__description--para {
-  font-size: 14px;
-  opacity: 0.80;
+  font-size: 16px;
+  font-weight: 300;
+  opacity: 0.85;
+  margin-top: 10px;
+
 }
 
 /* IMAGE WRAP (NOT the img itself) */
 .approach__img-wrap {
-  display: flex;
+  display: block;
   justify-content: center;
   align-items: center;
 }
@@ -768,11 +796,36 @@ box-icon {
   border-radius: 18px;
 }
 
+.approach__img-wrap--computer {
+  display: flex;
+  justify-self: end;
+  align-self: start;
+}
+
 .approach-section__img--computer {
   height: 600px;
-  display: block;
-  
+    
 }
+
+.approach__grid-3{
+  display: grid;
+  grid-template-columns: 1fr ; /* left = cards, right = image */
+  gap: 16px;
+}
+
+.approach__img-wrap--computer{
+  grid-column: 2;  /* right/empty column */
+  justify-self: end;  /* right side */
+  align-self: start;  /* top align */
+  margin: 0;
+}
+
+.approach-section__img--computer{
+  height: 570px;
+  width: auto;
+  display: block;     /* not flex */
+}
+
 
 
 
@@ -784,12 +837,15 @@ box-icon {
   margin: 0 auto;
   padding: 50px;
   width: 100%;
-  background: #1414193d;
+  
+  background: linear-gradient(135deg,#ffffff24,#000000a1);;
+  backdrop-filter: blur(60px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border-bottom: solid 1px #ffffff2e, inset 0 1px 0 #ffffff59;
+
+
   border-radius: 40px;
-  box-shadow: 0 12px 36px rgba(0,0,0,0.6);
-  backdrop-filter: blur(60px);
   transition: all 0.3s ease;
-  background: linear-gradient(to right, #2d20366b, #344544);
 
 }
 
@@ -804,23 +860,23 @@ box-icon {
 
 
 .language:hover .glow__img--orange {
-  filter: drop-shadow(0px 0px 20px #ff9d00);
-  -webkit-animation: drop-shadow(0px 0px 20px #ff9d00);
+  filter: brightness(80%) drop-shadow(0px 0px 20px #ff9d00);
+  -webkit-filter: drop-shadow(0px 0px 20px #ff9d00);
 }
 
 .language:hover .glow__img--blue {
-  filter: drop-shadow(0px 0px 20px #001aff);
-  -webkit-animation: drop-shadow(0px 0px 20px #001aff);
+  filter: brightness(80%) drop-shadow(0px 0px 20px #001aff);
+  -webkit-filter: drop-shadow(0px 0px 20px #001aff);
 }
 
 .language:hover .glow__img--gold {
-  filter: drop-shadow(0px 0px 20px #ecd000);
-  -webkit-animation: drop-shadow(0px 0px 20px #ecd000);
+  filter: brightness(80%) drop-shadow(0px 0px 20px #ecd000);
+  -webkit-filter: drop-shadow(0px 0px 20px #ecd000);
 }
 
 .language:hover .glow__img--neon {
-  filter: drop-shadow(0px 0px 20px #80ffcac9);
-  -webkit-animation: drop-shadow(0px 0px 20px #80ffcac9);
+  filter: brightness(80%) drop-shadow(0px 0px 20px #80ffcac9);
+  -webkit-filter: drop-shadow(0px 0px 20px #80ffcac9);
 }
 
 
@@ -862,7 +918,6 @@ box-icon {
 }
 
 .language:hover .language__img {
-  filter: brightness(80%);
   opacity: 0.85;
   transform: scale(1.3);
   transition: filter 0.4s ease-in-out, transform 0.8s ease; 
