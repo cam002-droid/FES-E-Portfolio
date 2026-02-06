@@ -17,7 +17,6 @@
   --pad-x: clamp(16px, 4vw, 48px);
   --section-y: clamp(48px, 8vw, 120px);
   --nav-gap: 10px;
-  --nav-height: px;
 }
 
 html, body {
@@ -176,7 +175,7 @@ section:nth-child(even) {    /** section background color - reusable code throug
   text-align: center;
   font-size: 44px;
   font-weight: 400;
-  background-image: linear-gradient(to top, #ffffff, #acacacf0);
+  background-image: linear-gradient(to top, #ffffffa0, #ffffff);
   background-clip: text;    /* 3. Clip the background to the text area */
   -webkit-background-clip: text;
   color: transparent;      /* 4. Make the text transparent so the background shows through */
@@ -187,7 +186,7 @@ section:nth-child(even) {    /** section background color - reusable code throug
   text-align: center;
   font-size: 44px;
   font-weight: 400;
-  background-image: linear-gradient(to top, #ffffff, #acacacf0);
+  background-image: linear-gradient(to top, #ffffff, #acacac);
   background-clip: text;    /* 3. Clip the background to the text area */
   -webkit-background-clip: text;
   color: transparent;      /* 4. Make the text transparent so the background shows through */
@@ -364,7 +363,9 @@ section:nth-child(even) {    /** section background color - reusable code throug
   padding: 20px;
   background: rgba(20, 20, 25, 0.47);
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(60px);
+  backdrop-filter: blur(60px) saturate(100%);
+  border-bottom: solid 1px #cdcdcd09;
+
   transition: all 0.3s ease;
   z-index: 999;
 
@@ -784,18 +785,151 @@ box-icon {
 .approach__card:hover .bx-user-voice,
 .approach__card:hover .bx-network-chart,
 .approach__card:hover .bx-brain-circuit,
-.approach__card:hover .bx-saplin {
+.approach__card:hover .bx-sapling,
+.approach__card:hover .bx-chess-knight,
+.approach__card:hover .bx-law, 
+.approach__card:hover .bx-compass,
+.approach__card:hover .bx-search,
+.approach__card:hover .bx-package,
+.approach__card:hover .bx-circle-dashed-half,
+.approach__card:hover .bx-timeline,
+.approach__card:hover .bx-bolt {
   opacity: 1;
   transition: opacity 550ms ease-in-out ;
 }
 
-.bx-community, .bx-psychology, .fa-triangle-exclamation, .fa-eye-low-vision, .bx-cube-inside, .bx-user-voice, .bx-network-chart, .bx-brain-circuit, .bx-sapling {
+.bx-community, .bx-user-voice {
   font-size: 70px;
   color: #ffff;
   opacity: 0.25;
   transition: opacity 550ms ease-in-out ;
 
 }
+
+.bx-bolt {
+  font-size: 70px;
+  background-image: linear-gradient(60deg, #cdcdcdb8, #fae037, #c3a900);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.2;
+  transition: opacity 550ms ease-in-out ;
+}
+
+.bx-timeline {
+  font-size: 70px;
+  background-image: linear-gradient(60deg, #cdcdcdb8, #aa8cff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.2;
+  transition: opacity 550ms ease-in-out ;
+}
+
+.bx-cube-inside {
+  font-size: 70px;
+  background-image: linear-gradient(60deg, #cdcdcdb8, #80ffcae4);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.2;
+  transition: opacity 550ms ease-in-out ;
+}
+
+.bx-package {
+  font-size: 70px;
+  background-image: linear-gradient(30deg, #ffffffb9, #6F7F9A, #66748E);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.25;
+  transition: opacity 550ms ease-in-out ;
+}
+
+.bx-compass {
+  font-size: 70px;
+  background-image: linear-gradient(30deg, #ffffff80, #54a77c, #66748E);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.25;
+  transition: opacity 550ms ease-in-out ;
+}
+
+.bx-law {
+  font-size: 70px;
+  background-image: linear-gradient(30deg, #ffffffa4, #667085, #5F6B7A);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.25;
+  transition: opacity 550ms ease-in-out ;
+}
+
+.bx-search {
+  font-size: 70px;
+  background-image: linear-gradient(135deg, #6fafb1b5 0%, #6c6746db 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.2;
+  transition: opacity 550ms ease-in-out ;
+}
+
+.bx-chess-knight {
+  font-size: 70px;
+  background-image: linear-gradient(135deg, #6fafb181 0%, #3f4a5287 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.2;
+  transition: opacity 550ms ease-in-out ;
+}
+
+.bx-network-chart, .bx-circle-dashed-half {
+  font-size: 70px;
+  background-image: linear-gradient(30deg, #ffffff, #68fcff, #169b16);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.2;
+  transition: opacity 550ms ease-in-out ;
+
+}
+
+.bx-brain-circuit {
+  font-size: 70px;
+  background-image: linear-gradient(30deg, #ad4fa8, #169b16, #169b16);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.2;
+  transition: opacity 550ms ease-in-out ;
+
+}
+
+.bx-sapling {
+  font-size: 70px;
+  background-image: linear-gradient(110deg, #ffff, #169b16, #169b16);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.2;
+  transition: opacity 550ms ease-in-out ;
+
+}
+
 
 
 
@@ -878,7 +1012,7 @@ box-icon {
   padding: 50px;
   width: 100%;
   
-  background: linear-gradient(to bottom,#00000074,#01323d14);
+  background: linear-gradient(to bottom,#00000024,#01323d14);
   backdrop-filter: blur(18px) saturate(160%);
   -webkit-backdrop-filter: blur(18px) saturate(160%);
 
@@ -1068,7 +1202,7 @@ box-icon {
 /** FOOTER **/
 
 footer{
-  background: linear-gradient(to top,#0000000e,#01323db4);
+  background: linear-gradient(to bottom,#0000006b,#01323d9b);
   backdrop-filter: blur(18px) saturate(160%);
   -webkit-backdrop-filter: blur(18px) saturate(160%);
 
