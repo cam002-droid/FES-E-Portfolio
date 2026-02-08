@@ -15,7 +15,7 @@
   --header-h: 120px;
   --container: 1200px;
   --pad-x: clamp(16px, 4vw, 48px);
-  --section-y: clamp(48px, 8vw, 120px);
+  --section-y: clamp(48px, 6vw, 120px);
   --nav-gap: 10px;
 }
 
@@ -570,37 +570,56 @@ box-icon {
 }
 
 
-.cta-button {
+.cta-button__container {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.cta-button__style {
   display: inline-flex;
   position: relative;
   font-weight: 200;
-  margin: 0 auto;
   
-  top: 125px;
   padding: 8px 16px;
   border-radius: 50px;
-
 
   justify-content: center;
   align-items: center;
   
-  color: #ffff;
-  opacity: 0.65;
-  border-bottom: solid 1px #ffffff2e ;
-
-
   background: linear-gradient(135deg,#ffffff24,#ffffff0a);
   backdrop-filter: blur(18px) saturate(160%);
   -webkit-backdrop-filter: blur(18px) saturate(160%);
+
+  color: #ffff;
+  opacity: 0.65;
+  border-bottom: solid 1px #ffffff2e ;
 
   animation: fade-in-logo 3s 1200ms backwards;
   transition: opacity 650ms ease;
 
 }
 
+.cta-button-1 {
+  top: 125px;
+}
 
+.cta-button-2 {
+  bottom: 16px;
+}
 
- .cta-button .fa-angle-down {
+.cta-button-3 {
+  top: 56px;
+  background: linear-gradient(135deg,#02506162,#0250616a);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+}
+
+.cta-button-4 {
+  top: 56px;
+}
+
+ .cta-button__style .fa-angle-down {
   position: absolute;
   inset: 0;
   margin: 0 auto;
@@ -626,19 +645,19 @@ box-icon {
 
  
 
-.cta-button:hover {
+.cta-button__style:hover {
   opacity: 1;
-  filter: drop-shadow(0px 0px 50px #00ffbf); /* Horizontal offset, Vertical offset, Blur radius, Color */
-  -webkit-filter: drop-shadow(0px 0px 10px #00ffbf);
+  filter: drop-shadow(0px 0px 50px #ffffff82); /* Horizontal offset, Vertical offset, Blur radius, Color */
+  -webkit-filter: drop-shadow(0px 0px 10px #ffffff82);
   
 }
 
-.cta-button:hover .cta-button__text {
+.cta-button__style:hover .cta-button__text {
   opacity: 0;
   transform: scale(0);
 }
 
-.cta-button:hover .fa-angle-down {
+.cta-button__style:hover .fa-angle-down {
   opacity: 1;
   transform: scale(1);
   display: inline-flex;
@@ -646,7 +665,7 @@ box-icon {
 }
 
 
-.cta-button:active {
+.cta-button__style:active {
   animation: shrink 1s ease-in
 }
 
@@ -841,7 +860,7 @@ box-icon {
 
 .bx-package {
   font-size: 70px;
-  background-image: linear-gradient(30deg, #ffffffb9, #6F7F9A, #66748E);
+  background-image: linear-gradient(30deg, #ffffffad, #6F7F9A, #666b8e);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -908,7 +927,7 @@ box-icon {
 
 .bx-brain-circuit {
   font-size: 70px;
-  background-image: linear-gradient(30deg, #ad4fa8, #169b16, #169b16);
+  background-image: linear-gradient(1100deg, #ad4fa8, #169b16, #169b16);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -920,7 +939,7 @@ box-icon {
 
 .bx-sapling {
   font-size: 70px;
-  background-image: linear-gradient(110deg, #ffff, #169b16, #169b16);
+  background-image: linear-gradient(30deg, #ffff, #169b16, #169b16);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -982,13 +1001,13 @@ box-icon {
 
 
 .approach-section__img--computer{
-  height: 570px;
+  height: 550px;
   width: auto;
   display: block;     /* not flex */
 }
 
 .approach-section__img--phone {
-  height: 820px;
+  height: 620px;
   width: auto;
   display: flex;
   margin: 0 auto;
@@ -996,8 +1015,8 @@ box-icon {
       
 }
 
-.approach-section__img {
-  height: 600px;
+.approach-section__img--ipad {
+  height: 650px;
   display: block;
   margin: 0 auto;
   border-radius: 18px;
@@ -1084,6 +1103,7 @@ box-icon {
   transform: scale(0);
   transition: all 300ms ease-out;
   font-size: 20px;
+  font-weight: 400;
   opacity: 0;
   color: white;
 }
@@ -1202,7 +1222,7 @@ box-icon {
 /** FOOTER **/
 
 footer{
-  background: linear-gradient(to bottom,#0000006b,#01323d9b);
+  background: linear-gradient(to right,#000000c5,#000000df);
   backdrop-filter: blur(18px) saturate(160%);
   -webkit-backdrop-filter: blur(18px) saturate(160%);
 
