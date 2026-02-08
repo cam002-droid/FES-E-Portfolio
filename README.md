@@ -1,6 +1,6 @@
 # FES-E-Portfolio
 
-**Building visual-first interfaces that turn real-world complexity into shared understanding.**
+**Building frontend interfaces that turn real-world complexity into shared understanding.**
 
 I create clean, creative digital products: dashboards, tools, interfaces, and experiments.
 
